@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="JavaFXService.jnlp">
+  <information>
+    <title>JavaFXService</title>
+    <vendor>Mathew</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="JavaFXService.jar" size="42988" download="eager" />
+    <jar href="lib\mysql-connector-java-8.0.22.jar" size="2389216" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="javafxservice.JavaFXService"  name="JavaFXService" />
+  <update check="always"/>
+</jnlp>

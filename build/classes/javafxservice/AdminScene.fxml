@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane fx:id="main_tab_pane_fx" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxservice.AdminSceneController">
+  <tabs>
+    <Tab text="Users">
+         <content>
+            <VBox prefHeight="135.0" prefWidth="114.0">
+               <children>
+                  <ToolBar prefHeight="40.0" prefWidth="200.0">
+                    <items>
+                      <Button mnemonicParsing="false" onAction="#handleAddUser" text="Add User" />
+                        <Button mnemonicParsing="false" onAction="#handleRemoveUser" text="Remove User" />
+                    </items>
+                  </ToolBar>
+                  <TableView fx:id="users_table_fx" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="359.0" prefWidth="561.0">
+                    <columns>
+                      <TableColumn fx:id="users_id_fx" prefWidth="57.0" text="ID" />
+                      <TableColumn fx:id="users_username_fx" prefWidth="107.0" text="Username" />
+                        <TableColumn fx:id="users_passwd_fx" prefWidth="115.0" text="Password" />
+                        <TableColumn fx:id="users_type_fx" prefWidth="69.0" text="Type" />
+                        <TableColumn fx:id="users_name_fx" prefWidth="101.0" text="Name" />
+                        <TableColumn fx:id="users_surname_fx" prefWidth="110.0" text="Surname" />
+                    </columns>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </VBox>
+         </content>
+    </Tab>
+    <Tab text="Orders">
+         <content>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <ToolBar prefHeight="40.0" prefWidth="200.0">
+                    <items>
+                      <Button mnemonicParsing="false" onAction="#handlePlaceOrder" text="Place Order" />
+                        <Button mnemonicParsing="false" onAction="#handleRemoveOrder" text="Remove Order" />
+                        <Button mnemonicParsing="false" onAction="#handleAssignOrder" text="Assign Order" />
+                        <Button mnemonicParsing="false" onAction="#handleShowDelayedOrders" text="Show Delayed Orders" />
+                        <Button mnemonicParsing="false" onAction="#handleShowAllOrders" text="Show All Orders" />
+                    </items>
+                  </ToolBar>
+                  <TableView fx:id="orders_table_fx" prefHeight="357.0" prefWidth="561.0">
+                    <columns>
+                      <TableColumn fx:id="orders_id_fx" prefWidth="53.0" text="ID" />
+                      <TableColumn fx:id="orders_device_fx" prefWidth="97.0" text="Device" />
+                        <TableColumn fx:id="orders_client_id_fx" prefWidth="67.0" text="Client ID" />
+                        <TableColumn fx:id="orders_placed_fx" prefWidth="103.0" text="Placed" />
+                        <TableColumn fx:id="orders_state_fx" prefWidth="98.0" text="State" />
+                        <TableColumn fx:id="orders_description_fx" prefWidth="142.0" text="Description" />
+                    </columns>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </VBox>
+         </content>
+    </Tab>
+      <Tab text="Charts">
+         <content>
+            <TabPane fx:id="chart_tab_pane_fx" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Orders by month">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="41.0" prefWidth="561.0">
+                                 <children>
+                                    <Label text="Year">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <ChoiceBox fx:id="year_fx" onAction="#handleYearChange" prefWidth="150.0">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </ChoiceBox>
+                                 </children>
+                              </HBox>
+                              <Separator prefWidth="200.0" />
+                              <BarChart fx:id="orders_by_month_fx" animated="false" legendSide="LEFT">
+                                <xAxis>
+                                  <CategoryAxis fx:id="monthAxis_fx" side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis fx:id="orderAxis_fx" side="LEFT" />
+                                </yAxis>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </BarChart>
+                           </children>
+                        </VBox>
+                     </content>
+                </Tab>
+                <Tab text="User distribution">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="performance_ratio_fx" text="Label">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Separator prefWidth="200.0" />
+                              <BarChart fx:id="user_distribution_fx" animated="false" legendSide="LEFT">
+                                <xAxis>
+                                  <CategoryAxis fx:id="userAxis_fx" side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis fx:id="nr_of_userAxis_fx" side="LEFT" />
+                                </yAxis>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </BarChart>
+                           </children>
+                        </VBox>
+                     </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>

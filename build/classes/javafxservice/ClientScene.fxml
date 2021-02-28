@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.6020066889632107" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="902.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxservice.ClientSceneController">
+   <items>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Label text="My Orders">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <TableView fx:id="orders_table_fx" prefHeight="389.0" prefWidth="323.0">
+              <columns>
+                <TableColumn fx:id="orders_device_fx" prefWidth="66.0" text="Device" />
+                <TableColumn fx:id="orders_placed_fx" prefWidth="72.0" text="Placed" />
+                  <TableColumn fx:id="orders_state_fx" prefWidth="70.0" text="State" />
+                  <TableColumn fx:id="orders_description_fx" prefWidth="137.0" text="Description" />
+              </columns>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" prefHeight="493.0" prefWidth="300.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Device">
+                     <HBox.margin>
+                        <Insets right="25.0" />
+                     </HBox.margin>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Label>
+                  <TextField fx:id="device_fx" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="152.0" prefWidth="354.0">
+               <children>
+                  <Label text="Description">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextArea fx:id="description_fx" prefHeight="153.0" prefWidth="200.0" />
+               </children>
+            </HBox>
+            <Button mnemonicParsing="false" onAction="#handlePlaceOrder" text="Place Order">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </items>
+</SplitPane>
